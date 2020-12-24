@@ -36,7 +36,7 @@ def xmly_signin():
     url_taskrecords = "http://hybrid.ximalaya.com/web-activity/task/taskRecords?ts=1604656300792&_sonic=0&_sonic=0 h2"
 
     url_get_coin="http://m.ximalaya.com/starwar/lottery/task/gold-coin"
-
+    print(xmly_cookie)
     headers = {
         "cookie": xmly_cookie,
         "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36",
