@@ -1,10 +1,10 @@
-try:
-    import requests
-    import time
-    import os
-except:
-    import pip
-    pip.main(['install','requests','time','os'])
+# try:
+import requests,time,os
+#     import time
+#     import os
+# except:
+#     import pip
+#     pip.main(['install','requests','time','os'])
 #http://m.ximalaya.com/starwar/task/listen/layout/center/home
 #python 实现微信接口 https://cloud.tencent.com/developer/article/1562230
 # url_home_get="http://m.ximalaya.com/starwar/task/listen/layout/center/home"
