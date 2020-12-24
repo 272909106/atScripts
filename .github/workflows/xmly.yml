@@ -36,5 +36,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
       - run: |
-          python -m pip install requests time os
+          python -c 'import requests time os'
           python xmly-latest.py
