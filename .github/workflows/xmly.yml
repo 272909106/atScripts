@@ -38,6 +38,8 @@ jobs:
           pip install requests
       - name: Run xmla
         env:
-          cookie: ${{ secrets.cookie }}
-        run: 
+          COOKIE: ${{ secrets.COOKIE }}
+          ENTWX_CORPID: ${{ secrets.ENTWX_CORPID }}
+          ENTWX_CORPSECRET: ${{ secrets.ENTWX_CORPSECRET }}
+        run:
           python xmly-latest.py
