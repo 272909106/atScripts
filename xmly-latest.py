@@ -10,7 +10,7 @@ def getWxToken():
     return data["access_token"]
 def sendWxMsg(con):
     token=getWxToken()
-    msg=con
+    msg="%s"%con
     # print(msg)
     url="https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=%s"%token
     data={
