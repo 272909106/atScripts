@@ -3,7 +3,7 @@ xmly_cookie=os.getenv("COOKIE")
 entcorpid=os.getenv("ENTWX_CORPID")
 entcorpsecret=os.getenv("ENTWX_CORPSECRET")
 def getWxToken():
-    url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s"(entcorpid,entcorpsecret)
+    url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s"%(entcorpid,entcorpsecret)
     respon=requests.get(url)
     data=respon.json()
     # print(data)
