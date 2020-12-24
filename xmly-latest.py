@@ -45,7 +45,8 @@ def xmly_signin():
     respon_getcoin=requests.get(url_get_coin,headers=headers)
     msg={}
     # print("totalGoldCoins",respon_getcoin.json()["totalGoldCoins"])
-    msg["coins"]=respon_getcoin.json()["totalGoldCoins"]
+    print("totalGoldCoins",respon_getcoin.json())
+    # msg["coins"]=respon_getcoin.json()["totalGoldCoins"]
     day=time.strftime("%Y%m%d", time.localtime())
     data={
         'aid': 9,
