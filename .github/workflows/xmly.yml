@@ -29,6 +29,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run xmla
+        env:
+          cookie: ${{ secrets.cookie }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
