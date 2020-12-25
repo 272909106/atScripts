@@ -60,6 +60,7 @@ def xmly_signin():
     respon_taskrecords=requests.post(url_taskrecords,headers=headers,json=data)
     # print("countDownMills",respon_taskrecords.json()["data"]["countDownMills"])
     msg["countDownMills"]=respon_taskrecords.json()["data"]["countDownMills"]
+    msg["alert"]="喜马拉雅签到通知"
     sendWxMsg(msg)
 
 def zdm_checkin():
@@ -76,6 +77,7 @@ def zdm_checkin():
     content_list = re.findall(r'[(](.*?)[)]', respon.text)
     content_json = json.loads(content_list[0])
     msg=content_json["data"]
+    msg["alert"]="什么值得买签到通知"
     sendWxMsg(msg)
 
 if __name__ == '__main__':
