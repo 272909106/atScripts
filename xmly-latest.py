@@ -1,7 +1,10 @@
-import requests,time,os
+import requests,time,os,re,json,urllib3
+urllib3.disable_warnings()
 xmly_cookie=os.getenv("COOKIE")
 entcorpid=os.getenv("ENTWX_CORPID")
 entcorpsecret=os.getenv("ENTWX_CORPSECRET")
+zdm_cookie=os.getenv("ZDM_COOKIE")
+
 def getWxToken():
     url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s"%(entcorpid,entcorpsecret)
     respon=requests.get(url)
@@ -59,5 +62,22 @@ def xmly_signin():
     msg["countDownMills"]=respon_taskrecords.json()["data"]["countDownMills"]
     sendWxMsg(msg)
 
+def zdm_checkin():
+    url="https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?callback=jQuery112406736468018154295_1576225909494&_=1576225909497"
+    headers={
+            'Host': 'zhiyou.smzdm.com',
+            'Referer': 'https://www.smzdm.com/',
+            'Accept': '*/*',
+            'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+            'Cookie': zdm_cookie
+        }
+    s = requests.Session()
+    respon=s.get(url=url,headers=headers,params={},verify=False)
+    content_list = re.findall(r'[(](.*?)[)]', respon.text)
+    content_json = json.loads(content_list[0])
+    msg=content_json["data"]
+    sendWxMsg(msg)
+
 if __name__ == '__main__':
     xmly_signin()
+    zdm_checkin()
