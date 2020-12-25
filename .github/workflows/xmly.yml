@@ -44,5 +44,6 @@ jobs:
           COOKIE: ${{ secrets.COOKIE }}
           ENTWX_CORPID: ${{ secrets.ENTWX_CORPID }}
           ENTWX_CORPSECRET: ${{ secrets.ENTWX_CORPSECRET }}
+          ZDM_COOKIE: ${{ secrets.ZDM_COOKIE }}
         run:
           python xmly-latest.py
