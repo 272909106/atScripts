@@ -60,7 +60,7 @@ def xmly_signin():
     respon_taskrecords=requests.post(url_taskrecords,headers=headers,json=data)
     # print("countDownMills",respon_taskrecords.json()["data"]["countDownMills"])
     msg["countDownMills"]=respon_taskrecords.json()["data"]["countDownMills"]
-    msg["alert"]="喜马拉雅签到通知"
+    msg["alert"]="喜马拉雅签到通知20210225"
     sendWxMsg(msg)
 
 def zdm_checkin():
